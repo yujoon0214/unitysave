@@ -1,4 +1,2 @@
 ﻿  C_Project_10.cpp
-C:\Users\SBSGAME\Desktop\yujunheon\C_Project_10\C_Project_10\C_Project_10.cpp(33,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
-C:\Users\SBSGAME\Desktop\yujunheon\C_Project_10\C_Project_10\C_Project_10.cpp(33,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
   C_Project_10.vcxproj -> C:\Users\SBSGAME\Desktop\yujunheon\C_Project_10\Debug\C_Project_10.exe
