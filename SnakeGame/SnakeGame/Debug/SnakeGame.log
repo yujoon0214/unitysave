@@ -1,0 +1,4 @@
+﻿  SnakeGame.cpp
+C:\Users\SBSGAME\Desktop\yujunheon\SnakeGame\SnakeGame\SnakeGame.cpp(34,18): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+C:\Users\SBSGAME\Desktop\yujunheon\SnakeGame\SnakeGame\SnakeGame.cpp(34,23): warning C4838: 'int'에서 'SHORT'(으)로의 변환에는 축소 변환이 필요합니다.
+  SnakeGame.vcxproj -> C:\Users\SBSGAME\Desktop\yujunheon\SnakeGame\Debug\SnakeGame.exe
