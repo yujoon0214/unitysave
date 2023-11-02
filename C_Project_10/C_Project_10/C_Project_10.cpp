@@ -7,8 +7,110 @@
 #include <time.h>
 
 
+int main(void)
+{
+	int array[3] = { 0,1,2 };
+	printf("array의 값 : %d\n", array);
+	printf("array의 주소 : %d\n", &array);
+	printf("array + 1 : %d\n", array + 1);
+	printf("&array + 1 : %d\n", &array + 1);
+	for (int i = 0; i < 3; i++)
+		printf("%d\n", array + i);
+	return 0;
+}
+
+//int main(void)
+//{
+//	char str1[5] = "abcd";
+//	char *str2 = "ABCD";
+//
+//	printf("%s \n", str1);
+//	printf("%s \n", str2);
+//
+//	str1[0] = 'x';
+//	
+//	printf("%s \n", str1);
+//	printf("%s \n", str2);
+//}
 
 
+//int main(void)
+//{
+//	int arr[3] = { 10, 20, 30 };
+//	int* ptr = &arr[0];
+//	printf("%d %3d \n", ptr[0], arr[0]);
+//	printf("%d %3d \n", ptr[1], arr[1]);
+//	printf("%d %3d \n", ptr[2], arr[2]);
+//	printf("%d %3d \n", *ptr, *arr);
+//	printf("%d %3d \n", *(ptr + 0), *(arr + 0));
+//	printf("%d %3d \n", *(ptr + 1), *(arr + 1));
+//	printf("%d %3d \n", *(ptr + 2), *(arr + 2));
+//	return 0;
+//}
+
+
+//void swap(int a, int b);
+//int main()
+//{
+//	int a = 3;
+//	int b = 2;
+//	swap(a, b);
+//	printf("3. 함수호출 후 a : %d, b : %d\n", a, b);
+//}
+//
+//void swap(int a, int b)
+//{
+//	int temp = 0;
+//	printf("1. 변경전 a : %d, b : %d\n", a, b);
+//	temp = a;
+//	a = b;
+//	b = temp;
+//	printf("2. 변경후 a : %d, b : %d\n", a, b);
+//}
+
+//int main()
+//{
+//	int nData = 10;
+//	int *pnData = &nData;
+//
+//	printf("%d, %d\n", nData, *pnData);
+//	printf("%p, %p\n", &nData, pnData);
+//	*pnData += 20;
+//	printf("%d\n", nData);
+//}
+
+
+//int main()
+//{
+//	int a = 10;
+//	char b = 'A';
+//	double c = 1234.56f;
+//	int *ptr1 = &a;
+//	char *ptr2 = &b;
+//	double *ptr3 = &c;
+//
+//	printf("int형 a의 값 %d , 주소 %d, 크기 %d\n", a, &a, sizeof(a));
+//	printf("char형 b의 값 %c , 주소 %d, 크기 %d\n", b, &b, sizeof(b));
+//	printf("double형 c의 값 %f , 주소 %d, 크기 %d\n", c, &c, sizeof(c));
+//	printf("int형 포인터 ptr1의 값 %d , 주소 %d, 크기 %d\n", ptr1, &ptr1, sizeof(ptr1));
+//	printf("char형 포인터 ptr2의 값 %d , 주소 %d, 크기 %d\n", ptr2, &ptr2, sizeof(ptr2));
+//	printf("double형 포인터 ptr3의 값 %d , 주소 %d, 크기 %d\n", ptr3, &ptr3, sizeof(ptr3));
+//}
+//
+//int global = 300;
+//int main()
+//{
+//	static int a = 20;
+//	int b = 30;
+//	int * p = (int *)malloc(sizeof(int));
+//	*p = 150;
+//	printf("전역변수 global=%3d, &global=%d\n", global, &global);
+//	printf("정적변수 a=%d, &a=%d\n", a, &a);
+//	printf("지역변수 b=%3d, &b=%d\n", b, &b);
+//	printf("포인터 *p=%3d, p=%d\n", *p, p);
+//	printf("포인터 *p=%3d, &p=%d\n", *p, &p);
+//}
+//
 //#define P printf
 //#define CAR
 //#define BUS
@@ -22,7 +124,7 @@
 //#endif
 //	return 0;
 //}
-
+//
 //#define SQUARE1(a) a * a
 //#define SQUARE2(a) ((a)*(a))
 //#define P printf
@@ -42,7 +144,7 @@
 //	P("square(3+7) = %d\n", square(3 + 7));
 //	return 0;
 //}
-
+//
 //#define	MAP_WIDTH		19
 //#define MAP_HEIGHT		17
 //
@@ -246,8 +348,8 @@
 //		Sleep(speed);
 //	}
 //}
-
-
+//
+//
 //int main() {
 //	int x = 5;
 //	int y = 1;
@@ -267,9 +369,9 @@
 //		printf("\n");
 //	}
 //}
-
-
-
+//
+//
+//
 //#define LEFT 75 
 //#define RIGHT 77
 //#define UP 72 
