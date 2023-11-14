@@ -1,0 +1,7 @@
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\bin\Debug\Cs_Project_11.exe.config
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\bin\Debug\Cs_Project_11.exe
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\bin\Debug\Cs_Project_11.pdb
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\obj\Debug\Cs_Project_11.csproj.AssemblyReference.cache
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\obj\Debug\Cs_Project_11.csproj.CoreCompileInputs.cache
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\obj\Debug\Cs_Project_11.exe
+C:\Users\SBSGAME\source\repos\Cs_Project_11\Cs_Project_11\obj\Debug\Cs_Project_11.pdb
