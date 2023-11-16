@@ -1,0 +1,11 @@
+﻿  YJH_Test_1.cpp
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(36,9): warning C4477: 'scanf' : 서식 문자열 '%s'에 'char *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int *'입니다.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(38,9): warning C4477: 'scanf' : 서식 문자열 '%d'에 'int *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(40,9): warning C4477: 'scanf' : 서식 문자열 '%f'에 'float *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(42,9): warning C4477: 'scanf' : 서식 문자열 '%g'에 'float *' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int'입니다.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(46,10): warning C4477: 'printf' : 서식 문자열 '%d'에 'int' 형식의 인수가 필요하지만 variadic 인수 1의 형식이 'int *'입니다.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(36,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(38,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(40,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(42,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  YJH_Test_1.vcxproj -> C:\Users\SBSGAME\Desktop\yujunheon\YJH_Test_1\Debug\YJH_Test_1.exe

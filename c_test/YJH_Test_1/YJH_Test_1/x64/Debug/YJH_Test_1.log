@@ -1,0 +1,3 @@
+﻿  YJH_Test_1.cpp
+C:\Users\yujoo\Desktop\c_test\YJH_Test_1\YJH_Test_1\YJH_Test_1.cpp(24,9): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  YJH_Test_1.vcxproj -> C:\Users\yujoo\Desktop\c_test\YJH_Test_1\x64\Debug\YJH_Test_1.exe
