@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Test
+class Student
 {
-    struct Point
+    private string m_name;
+    public static string m_schoolName;
+    public string NAME { get { return m_name; } set { m_name = value; } }
+    public void Intro()
     {
-        public int hp;
-        public int mp;
+        Console.WriteLine("{0}에 다니는 {1}입니다.", m_schoolName, m_name);
     }
 }
+
 
 namespace Cs_Project_11
 {
@@ -21,23 +24,40 @@ namespace Cs_Project_11
         
         static void Main(string[] args)
         {
+            //C# 클래스
+
+            Student.m_schoolName = "서울대학교";
+            Student std1 = new Student();
+            Student std2 = new Student();
+            std1.NAME = "홍길동";
+            std2.NAME = "아무개";
+            std1.Intro();
+            std2.Intro();
+
+
+            //Hero 클래스 연습
+
+            //Hero myhero = new Hero();
+            //myhero.Damage(120);
+            //Console.WriteLine("현재 hp : " + myhero.Gethp());
+
             //C# 자료형
 
             //object의 사용
 
-            object obj1 = 20;
-            object obj2 = 20;
+            //object obj1 = 20;
+            //object obj2 = 20;
 
-            int num1 = 10;
-            int num2 = 10;
-            if (obj1 == obj2)
-                Console.WriteLine("object obj1과 obj2는 같습니다.");
-            else
-                Console.WriteLine("object obj1과 obj2는 같지 않습니다.");
-            if (num1 == num2)
-                Console.WriteLine("object num1과 num2는 같습니다.");
-            else
-                Console.WriteLine("object num1과 num2는 같지 않습니다.");
+            //int num1 = 10;
+            //int num2 = 10;
+            //if (obj1 == obj2)
+            //    Console.WriteLine("object obj1과 obj2는 같습니다.");
+            //else
+            //    Console.WriteLine("object obj1과 obj2는 같지 않습니다.");
+            //if (num1 == num2)
+            //    Console.WriteLine("object num1과 num2는 같습니다.");
+            //else
+            //    Console.WriteLine("object num1과 num2는 같지 않습니다.");
 
 
             //int num = 10;
@@ -125,3 +145,33 @@ namespace Cs_Project_11
         }
     }
 }
+
+//Hero 클래스 연습
+//class Hero
+//{
+//    private const int MAX_HP = 500;
+//    public int hp = 0;
+//    public int Gethp() { return hp; }
+//    public Hero()
+//    {
+//        hp = MAX_HP;
+//    }
+//    public void LevelUP()
+//    {
+//        hp = MAX_HP;
+//    }
+//    public void Damage(int dmg)
+//    {
+//        if (hp - dmg > 0) hp -= dmg;
+//        else { hp = 0; }
+//    }
+//}
+
+//namespace Test
+//{
+//    struct Point
+//    {
+//        public int hp;
+//        public int mp;
+//    }
+//}
