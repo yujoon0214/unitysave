@@ -5,18 +5,85 @@ using System.Text;
 using System.Threading.Tasks;
 
 
+class PoketMon
+{
+    private string kind;
+    private string name;
+    public PoketMon(string kind, string name)
+    {
+        this.kind = kind;
+        this.name = name;
+    }
+    public void PrintPoketMon()
+    {
+        Console.WriteLine("종류 : {0} / 이름 : {1}", kind, name);
+    }
+}
+
 
 namespace Cs_Project_11
 {
     class Program
-    {
+    { 
         static void Main(string[] args)
         {
+            PoketMon[] pomon = new PoketMon[4];
+            pomon[0] = new PoketMon("노말", "잠만보");
+            pomon[1] = new PoketMon("불꽃", "파이리");
+            pomon[2] = new PoketMon("전기", "피카츄");
+            pomon[3] = new PoketMon("물", "꼬부기");
+            foreach (PoketMon po in pomon)
+            {
+                po.PrintPoketMon();
+            }
+            //string[][] jagged_str = new string[3][]
+            //{
+            //    new string[3] {"SBS","Game","Academy"},
+            //    new string[2] {"강남역", "12번출구로"},
+            //    new string[] {"나오시면","금방", "찾으실","수","있습니다." }
+            //};
+            //foreach (string[] jagged in jagged_str)
+            //{
+            //    foreach (string str_element in jagged)
+            //    {
+            //        Console.Write(str_element + " ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //int i = 0;
+            //int[,] array = new int[2, 3]
+            //{
+            //    {1,2,3 },
+            //    {4,5,6 }
+            //};
+            //foreach (int num in array)
+            //{
+            //    Console.Write(num + " ");
+            //    i++;
+            //    if (i % array.GetLength(1) == 0)
+            //        Console.WriteLine();
+            //}
+            //int[] array1 = new int[5];
+            //int[] array2 = new int[] { 1, 3, 5, 7, 9 };
+            //int[] array3 = { 1, 2, 3, 4, 5, 6 };
+            //int[,] multiDimensionalArray1 = new int[2, 3];
+            //int[,] multiDimensionalArray2 = { { 1, 2, 3 }, { 4, 5, 6 } };
+            //int[][] jaggedArray = new int[2][];
+            //jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
+            //jaggedArray[1] = new int[3] { 5, 6, 7 };
 
         }
         //static void Main(string[] args)
         //{
-        //C# 클래스
+        //    TempRecord tempRecord = new TempRecord();
+        //    tempRecord[3] = 56.3F;
+        //    tempRecord[5] = 60.1F;
+        //    for (int i = 0; i < tempRecord.Length; i++)
+        //        System.Console.WriteLine("tempRecord[{0}] = {1}", i, tempRecord[i]);
+        //    System.Console.ReadKey();
+        //}
+        //static void Main(string[] args)
+        //{
         //int i = 0;
         //int[] arr = new int[5] { 10, 20, 30, 40, 50 };
 
@@ -173,6 +240,48 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//class DayCollection
+//{
+//    string[] days = { "Sun", "Mon", "Tue", "Wed", "Thurs", "Fri", "Sat" };
+
+//    private int GetDay(string testDay)
+//    {
+//        for (int j = 0; j < days.Length - 1; j++)
+//        {
+//            if (days[j] == testDay)
+//            {
+//                return j;
+//            }
+//        }
+//        throw new System.ArgumentOutOfRangeException(testDay, "testDay must be in the form \"Sun\", \"Mon\", etc");
+//    }
+//    public int this[string day]
+//    {
+//        get
+//        {
+//            return (GetDay(day));
+//        }
+//    }
+//}
+
+//class TempRecord
+//{
+//    private float[] temps = new float[10] { 56.2F, 56.7F, 56.5F, 56.9F, 58.8F,
+//                                            61.3F, 65.9F,62.1F, 59.2F, 57.5F };
+//    public int Length { get { return temps.Length; } }
+//    public float this[int index]
+//    {
+//        get
+//        {
+//            return temps[index];
+//        }
+//        set
+//        {
+//            temps[index] = value;
+//        }
+//    }
+//}
 
 //클래스 연습
 //class Student
