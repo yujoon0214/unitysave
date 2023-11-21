@@ -4,75 +4,159 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-class PoketMon
+delegate int TestDelegate(int a, int b);
+class Calculator
 {
-    private string kind;
-    private string name;
-    public PoketMon(string kind, string name)
-    {
-        this.kind = kind;
-        this.name = name;
-    }
-    public void PrintPoketMon()
-    {
-        Console.WriteLine("종류 : {0} / 이름 : {1}", kind, name);
-    }
+    public int Plus(int a, int b) { return a + b; }
+    public int Minus(int a, int b) { return a - b; }
+    public int Multuply(int a, int b) { return a * b; }
 }
 
 
 namespace Cs_Project_11
 {
     class Program
-    { 
-        static void Main(string[] args)
+    {
+        public static void Calculator(int a, int b, TestDelegate callback)
         {
-            PoketMon[] pomon = new PoketMon[4];
-            pomon[0] = new PoketMon("노말", "잠만보");
-            pomon[1] = new PoketMon("불꽃", "파이리");
-            pomon[2] = new PoketMon("전기", "피카츄");
-            pomon[3] = new PoketMon("물", "꼬부기");
-            foreach (PoketMon po in pomon)
-            {
-                po.PrintPoketMon();
-            }
-            //string[][] jagged_str = new string[3][]
-            //{
-            //    new string[3] {"SBS","Game","Academy"},
-            //    new string[2] {"강남역", "12번출구로"},
-            //    new string[] {"나오시면","금방", "찾으실","수","있습니다." }
-            //};
-            //foreach (string[] jagged in jagged_str)
-            //{
-            //    foreach (string str_element in jagged)
-            //    {
-            //        Console.Write(str_element + " ");
-            //    }
-            //    Console.WriteLine();
-            //}
-            //int i = 0;
-            //int[,] array = new int[2, 3]
-            //{
-            //    {1,2,3 },
-            //    {4,5,6 }
-            //};
-            //foreach (int num in array)
-            //{
-            //    Console.Write(num + " ");
-            //    i++;
-            //    if (i % array.GetLength(1) == 0)
-            //        Console.WriteLine();
-            //}
-            //int[] array1 = new int[5];
-            //int[] array2 = new int[] { 1, 3, 5, 7, 9 };
-            //int[] array3 = { 1, 2, 3, 4, 5, 6 };
-            //int[,] multiDimensionalArray1 = new int[2, 3];
-            //int[,] multiDimensionalArray2 = { { 1, 2, 3 }, { 4, 5, 6 } };
-            //int[][] jaggedArray = new int[2][];
-            //jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
-            //jaggedArray[1] = new int[3] { 5, 6, 7 };
+            Console.WriteLine(callback(a, b));
+        }
+
+        static void Main()
+        {
+            Calculator cal = new Calculator();
+
+            Calculator(10, 20, cal.Plus);
+            Calculator(10, 20, cal.Minus);
+            Calculator(10, 20, cal.Multuply);
 
         }
+        //static void Print<T>(T value)
+        //{
+        //    Console.WriteLine(value);
+        //}
+
+        //static void CopyArray<T>(T[] src,T[] dest)
+        //{
+        //    src.CopyTo(dest, 0);
+        //}
+        //static void Main()
+        //{
+        //    int[] srcInt = { 1, 2, 3, 4, 5 };
+        //    int[] tagInt = new int[srcInt.Length];
+        //    string[] srcStr = { "hello", "sbs", "game", "academy" };
+        //    string[] tagStr = new string[srcStr.Length];
+        //    CopyArray<int>(srcInt, tagInt);
+        //    CopyArray<string>(srcStr, tagStr);
+        //    for (int i = 0; i < srcInt.Length; i++) Print(tagInt[i]);
+        //    for (int i = 0; i < srcStr.Length; i++) Print(tagStr[i]);
+        //}
+        //static void Main()
+        //{
+        //    List<int> list1 = new List<int>();
+        //    List<float> list2 = new List<float>();
+        //    List<string> list3 = new List<string>();
+        //    list1.InitArray(0, 58);
+        //    list1.InitArray(1, 30);
+        //    list2.InitArray(0, 75.2f);
+        //    list2.InitArray(1, 65.5f);
+        //    list3.InitArray(0, "아무개");
+        //    list3.InitArray(1, "홍길동");
+        //    for (int i = 0; i < list1.Length; i++)
+        //    {
+        //        Print("이름 : " + list3.GetValue(i));
+        //        Print("나이 : " + list1.GetValue(i));
+        //        Print("몸무게 : "  + list2.GetValue(i));
+        //    }
+
+        //}
+        //static void Print<T>(T value)
+        //{
+        //    Console.WriteLine(value);
+        //}
+        //static void Main()
+        //{
+        //    string name = "유준헌";
+        //    int age = 17;
+        //    float height = 176.0f;
+        //    double weight = 56.0d;
+        //    Print<string>(name);
+        //    Print<int>(age);
+        //    Print<float>(height);
+        //    Print<double>(weight);
+        //}
+
+        //static void Main(string[] args)
+        //{
+
+
+            //int[] orgArr = new int[] { 10, 20, 30, 40 };
+            //int[] copyArr = (int[])orgArr.Clone();
+            //for(int i = 0; i < copyArr.Length; i++)
+            //{
+            //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
+            //}
+
+            //int[] orgArr = new int[] { -1, -3, -5, -7, -9 };
+            //int[] copyArr = { 2, 4, 6, 8, 10 };
+            //Array.Copy(orgArr, 0, copyArr, 2, 3);
+            //for (int i = 0; i < copyArr.Length; i++)
+            //{
+            //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
+            //}
+        //}
+
+
+        //static void Main(string[] args)
+        //{
+
+
+        //PoketMon[] pomon = new PoketMon[4];
+        //pomon[0] = new PoketMon("노말", "잠만보");
+        //pomon[1] = new PoketMon("불꽃", "파이리");
+        //pomon[2] = new PoketMon("전기", "피카츄");
+        //pomon[3] = new PoketMon("물", "꼬부기");
+        //foreach (PoketMon po in pomon)
+        //{
+        //    po.PrintPoketMon();
+        //}
+        //string[][] jagged_str = new string[3][]
+        //{
+        //    new string[3] {"SBS","Game","Academy"},
+        //    new string[2] {"강남역", "12번출구로"},
+        //    new string[] {"나오시면","금방", "찾으실","수","있습니다." }
+        //};
+        //foreach (string[] jagged in jagged_str)
+        //{
+        //    foreach (string str_element in jagged)
+        //    {
+        //        Console.Write(str_element + " ");
+        //    }
+        //    Console.WriteLine();
+        //}
+        //int i = 0;
+        //int[,] array = new int[2, 3]
+        //{
+        //    {1,2,3 },
+        //    {4,5,6 }
+        //};
+        //foreach (int num in array)
+        //{
+        //    Console.Write(num + " ");
+        //    i++;
+        //    if (i % array.GetLength(1) == 0)
+        //        Console.WriteLine();
+        //}
+        //int[] array1 = new int[5];
+        //int[] array2 = new int[] { 1, 3, 5, 7, 9 };
+        //int[] array3 = { 1, 2, 3, 4, 5, 6 };
+        //int[,] multiDimensionalArray1 = new int[2, 3];
+        //int[,] multiDimensionalArray2 = { { 1, 2, 3 }, { 4, 5, 6 } };
+        //int[][] jaggedArray = new int[2][];
+        //jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
+        //jaggedArray[1] = new int[3] { 5, 6, 7 };
+
+        //}
         //static void Main(string[] args)
         //{
         //    TempRecord tempRecord = new TempRecord();
@@ -240,6 +324,71 @@ namespace Cs_Project_11
         //}
     }
 }
+//C# 일반화
+//class List<T>
+//{
+//    private T[] arr;
+//    public List() { arr = new T[2]; }
+//    public int Length { get { return arr.Length; } }
+//    public void InitArray(int index, T value) { arr[index] = value; }
+//    public T GetValue(int index) { return arr[index]; }
+//}
+
+//C# 배열
+
+//class ArrayClass2D
+//{
+//    static void PrintArray(int[,] arr)
+//    {
+//        for (int i =0; i < arr.GetLength(0); i++)
+//        {
+//            for (int j = 0; j < arr.GetLength(1); j++)
+//            {
+//                System.Console.WriteLine("arr[{0},{1}] = {2}", i, j, arr[i, j]);
+//            }
+//        }
+//    }
+//    static void Main()
+//    {
+//        PrintArray(new int[,] { { 1, 2 }, { 3, 4 }, { 5, 6 }, { 7, 8 } });
+
+//        Console.WriteLine("Press any key to exit.");
+//        Console.ReadKey();
+//    }
+//}
+
+//class ArrayClass
+//{
+//    static void PrintArray(string[] arr)
+//    {
+//        for (int i = 0; i < arr.Length; i++)
+//        {
+//            System.Console.Write(arr[i] + "{0}", i < arr.Length - 1 ? " " : " ");
+
+//        }
+//        System.Console.WriteLine();
+//    }
+//    static void Main()
+//    {
+//        string[] weekDays = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+//        PrintArray(weekDays);
+//    }
+//}
+
+//class PoketMon
+//{
+//    private string kind;
+//    private string name;
+//    public PoketMon(string kind, string name)
+//    {
+//        this.kind = kind;
+//        this.name = name;
+//    }
+//    public void PrintPoketMon()
+//    {
+//        Console.WriteLine("종류 : {0} / 이름 : {1}", kind, name);
+//    }
+//}
 
 //class DayCollection
 //{
