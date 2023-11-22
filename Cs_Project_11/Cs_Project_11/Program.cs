@@ -3,34 +3,136 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
-delegate int TestDelegate(int a, int b);
-class Calculator
+
+namespace Bookstore
 {
-    public int Plus(int a, int b) { return a + b; }
-    public int Minus(int a, int b) { return a - b; }
-    public int Multuply(int a, int b) { return a * b; }
+    public struct Book
+    {
+        public string Title;
+        public string Author;
+        public decimal Price;
+        public bool Paperback;
+
+        public Book(string title, string author, decimal price, bool paperback)
+        {
+            Title = title;
+            Author = author;
+            Price = price;
+            Paperback = paperback;
+        }
+    }
+
+
+    public delegate void ProcessBookDelegate(Book book);
+
+    public class BookDB
+    {
+        ArrayList list = new ArrayList();
+        public void AddBook(string title, string author, decimal price, bool paperback)
+        {
+            list.Add(new Book(title, author, price, paperback));
+        }
+        public void ProcessPaperbackBooks(ProcessBookDelegate processBook)
+        {
+            foreach (Book b in list)
+            {
+                if (b.Paperback)
+                    processBook(b);
+            }
+        }
+    }
 }
 
+namespace BookTestClient
+{
+    using Bookstore;
+    class PriceTotaller
+    {
+        int countBooks = 0;
+        decimal priceBooks = 0.0m;
 
+        internal void AddBookToTotal(Book book)
+        {
+            countBooks += 1;
+            priceBooks += book.Price;
+        }
+        internal decimal AveragePrice()
+        {
+            return priceBooks / countBooks;
+        }
+    }
+    class Test
+    {
+        static void PrintTitle(Book b)
+        {
+            Console.WriteLine($"   {b.Title}");
+        }
+        static void Main()
+        {
+            BookDB bookDB = new BookDB();
+            AddBooks(bookDB);
+            Console.WriteLine("Paperback Book Titles:");
+            bookDB.ProcessPaperbackBooks(PrintTitle);
+            PriceTotaller totaller = new PriceTotaller();
+            bookDB.ProcessPaperbackBooks(totaller.AddBookToTotal);
+            Console.WriteLine("Average Paperback Book Price: ${0:#.##}",
+            totaller.AveragePrice());
+        }
+        static void AddBooks(BookDB bookDB)
+        {
+            bookDB.AddBook("The C Programming Language", "Brian W. Kernighan and Dennis M. Ritchie", 19.95m, true);
+            bookDB.AddBook("The Unicode Standard 2.0", "The Unicode Consortium", 39.95m, true);
+            bookDB.AddBook("The MS-DOS Encyclopedia", "Ray Duncan", 129.95m, false);
+            bookDB.AddBook("Dogbert's Clues for the Clueless", "Scott Adams", 12.00m, true);
+        }
+    }
+}
 namespace Cs_Project_11
 {
     class Program
     {
-        public static void Calculator(int a, int b, TestDelegate callback)
-        {
-            Console.WriteLine(callback(a, b));
-        }
+        //public static void Calculator<T>(T a, T b, TestDelegate<T> callback)
+        //{
+        //    Console.WriteLine(callback(a, b));
+        //}
+        //static void Main()
+        //{
+        //    Calculator cal = new Calculator();
 
-        static void Main()
-        {
-            Calculator cal = new Calculator();
+        //    Calculator(10, 20, cal.Plus);
+        //    Calculator(54.6f, 96.32f, cal.Plus);
+        //    Calculator(200.5f, 120.10f, cal.Minus);
+        //    Calculator(36.5f, 42.3f, cal.Multiply);
+        //}
+        //static void Main()
+        //{
+        //    Calculator cal = new Calculator();
+        //    TestDelegate del = cal.Plus;
+        //    del += cal.Minus;
+        //    del += cal.Multiply;
+        //    del(10, 20);
+        //    del -= cal.Plus;
+        //    del -= cal.Minus;
+        //    del(20, 30);
+        //}
 
-            Calculator(10, 20, cal.Plus);
-            Calculator(10, 20, cal.Minus);
-            Calculator(10, 20, cal.Multuply);
 
-        }
+        //public static void Calculator(int a, int b, TestDelegate callback)
+        //{
+        //    Console.WriteLine(callback(a, b));
+        //}
+
+        //static void Main()
+        //{
+        //    Calculator cal = new Calculator();
+
+        //    Calculator(10, 20, cal.Plus);
+        //    Calculator(10, 20, cal.Minus);
+        //    Calculator(10, 20, cal.Multuply);
+
+        //}
         //static void Print<T>(T value)
         //{
         //    Console.WriteLine(value);
@@ -324,6 +426,18 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//delegate int TestDelegate<T>(T a, T b);
+//class Calculator
+//{
+//    public int Plus(int a, int b) { return a + b; }
+//    public float Plus(float a, float b) { return a + b; }
+//    public int Minus(int a, int b) { return a - b; }
+//    public float Minus(float a, float b) { return a - b; }
+//    public int Multiply(int a, int b) { return a * b; }
+//    public float Multiply(float a, float b) { return a * b; }
+//}
+
 //C# 일반화
 //class List<T>
 //{
