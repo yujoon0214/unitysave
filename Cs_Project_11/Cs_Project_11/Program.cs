@@ -6,93 +6,54 @@ using System.Threading.Tasks;
 using System.Collections;
 
 
-namespace Bookstore
-{
-    public struct Book
-    {
-        public string Title;
-        public string Author;
-        public decimal Price;
-        public bool Paperback;
 
-        public Book(string title, string author, decimal price, bool paperback)
-        {
-            Title = title;
-            Author = author;
-            Price = price;
-            Paperback = paperback;
-        }
-    }
-
-
-    public delegate void ProcessBookDelegate(Book book);
-
-    public class BookDB
-    {
-        ArrayList list = new ArrayList();
-        public void AddBook(string title, string author, decimal price, bool paperback)
-        {
-            list.Add(new Book(title, author, price, paperback));
-        }
-        public void ProcessPaperbackBooks(ProcessBookDelegate processBook)
-        {
-            foreach (Book b in list)
-            {
-                if (b.Paperback)
-                    processBook(b);
-            }
-        }
-    }
-}
-
-namespace BookTestClient
-{
-    using Bookstore;
-    class PriceTotaller
-    {
-        int countBooks = 0;
-        decimal priceBooks = 0.0m;
-
-        internal void AddBookToTotal(Book book)
-        {
-            countBooks += 1;
-            priceBooks += book.Price;
-        }
-        internal decimal AveragePrice()
-        {
-            return priceBooks / countBooks;
-        }
-    }
-    class Test
-    {
-        static void PrintTitle(Book b)
-        {
-            Console.WriteLine($"   {b.Title}");
-        }
-        static void Main()
-        {
-            BookDB bookDB = new BookDB();
-            AddBooks(bookDB);
-            Console.WriteLine("Paperback Book Titles:");
-            bookDB.ProcessPaperbackBooks(PrintTitle);
-            PriceTotaller totaller = new PriceTotaller();
-            bookDB.ProcessPaperbackBooks(totaller.AddBookToTotal);
-            Console.WriteLine("Average Paperback Book Price: ${0:#.##}",
-            totaller.AveragePrice());
-        }
-        static void AddBooks(BookDB bookDB)
-        {
-            bookDB.AddBook("The C Programming Language", "Brian W. Kernighan and Dennis M. Ritchie", 19.95m, true);
-            bookDB.AddBook("The Unicode Standard 2.0", "The Unicode Consortium", 39.95m, true);
-            bookDB.AddBook("The MS-DOS Encyclopedia", "Ray Duncan", 129.95m, false);
-            bookDB.AddBook("Dogbert's Clues for the Clueless", "Scott Adams", 12.00m, true);
-        }
-    }
-}
 namespace Cs_Project_11
 {
     class Program
     {
+        //C# 컬렉션
+        static void Main()
+        {
+
+            //Hashtable ht = new Hashtable();
+            //if (!ht.ContainsKey("오렌지"))
+            //    ht.Add("오렌지", "Orange");
+            //if (!ht.ContainsKey("바나나"))
+            //    ht.Add("바나나", "Banana");
+            //if (!ht.ContainsKey("사과"))
+            //    ht.Add("사과", "Apple");
+            //foreach(string s in ht.Keys)
+            //{
+            //    Console.WriteLine(s);
+            //    Console.WriteLine(ht[s]);
+            //}
+            //Console.WriteLine(ht["오렌지"]);
+            //Console.WriteLine(ht["바나나"]);
+            //Console.WriteLine(ht["사과"]);
+            //Queue que = new Queue();
+            //que.Enqueue(10);
+            //que.Enqueue(20);
+            //que.Enqueue(30);
+            //que.Dequeue();
+            //que.Enqueue(4.4);
+            //que.Dequeue();
+            //que.Enqueue("ABC");
+            //while(que.Count > 0)
+            //{
+            //    Console.WriteLine(que.Dequeue());
+            //}
+            //ArrayList list = new ArrayList();
+            //list.Add(10);
+            //list.Add(20);
+            //list.Add(30);
+            //list.RemoveAt(1);
+            //list.Insert(1, 36.5f);
+            //list.Add("SBS 게임 아카데미");
+            //for(int i = 0; i < list.Count; i++)
+            //{
+            //    Console.WriteLine(list[i]);
+            //}
+        }
         //public static void Calculator<T>(T a, T b, TestDelegate<T> callback)
         //{
         //    Console.WriteLine(callback(a, b));
@@ -426,6 +387,109 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//public static void TestDictionary()
+//{
+//    Dictionary<string, string> genDic = new Dictionary<string, string>();
+//    genDic.Add("txt", "notepad.exe");
+//    genDic.Add("bmp", "paint.exe");
+//    genDic.Add("mp3", "wmplayer.exe");
+//    Console.WriteLine("[Dictionary]");
+//    foreach (KeyValuePair<string,string> kvp in genDic)
+//    {
+//        Console.WriteLine("Key = {0}, Value = {1}",
+//            kvp.Key, kvp.Value);
+//    }
+//}
+//static void Main()
+//{
+//    TestDictionary();
+//}
+
+//마이크로 소프트 예제
+//namespace Bookstore
+//{
+//    public struct Book
+//    {
+//        public string Title;
+//        public string Author;
+//        public decimal Price;
+//        public bool Paperback;
+
+//        public Book(string title, string author, decimal price, bool paperback)
+//        {
+//            Title = title;
+//            Author = author;
+//            Price = price;
+//            Paperback = paperback;
+//        }
+//    }
+
+
+//    public delegate void ProcessBookDelegate(Book book);
+
+//    public class BookDB
+//    {
+//        ArrayList list = new ArrayList();
+//        public void AddBook(string title, string author, decimal price, bool paperback)
+//        {
+//            list.Add(new Book(title, author, price, paperback));
+//        }
+//        public void ProcessPaperbackBooks(ProcessBookDelegate processBook)
+//        {
+//            foreach (Book b in list)
+//            {
+//                if (b.Paperback)
+//                    processBook(b);
+//            }
+//        }
+//    }
+//}
+
+//namespace BookTestClient
+//{
+//    using Bookstore;
+//    class PriceTotaller
+//    {
+//        int countBooks = 0;
+//        decimal priceBooks = 0.0m;
+
+//        internal void AddBookToTotal(Book book)
+//        {
+//            countBooks += 1;
+//            priceBooks += book.Price;
+//        }
+//        internal decimal AveragePrice()
+//        {
+//            return priceBooks / countBooks;
+//        }
+//    }
+//    class Test
+//    {
+//        static void PrintTitle(Book b)
+//        {
+//            Console.WriteLine($"   {b.Title}");
+//        }
+//        static void Main()
+//        {
+//            BookDB bookDB = new BookDB();
+//            AddBooks(bookDB);
+//            Console.WriteLine("Paperback Book Titles:");
+//            bookDB.ProcessPaperbackBooks(PrintTitle);
+//            PriceTotaller totaller = new PriceTotaller();
+//            bookDB.ProcessPaperbackBooks(totaller.AddBookToTotal);
+//            Console.WriteLine("Average Paperback Book Price: ${0:#.##}",
+//            totaller.AveragePrice());
+//        }
+//        static void AddBooks(BookDB bookDB)
+//        {
+//            bookDB.AddBook("The C Programming Language", "Brian W. Kernighan and Dennis M. Ritchie", 19.95m, true);
+//            bookDB.AddBook("The Unicode Standard 2.0", "The Unicode Consortium", 39.95m, true);
+//            bookDB.AddBook("The MS-DOS Encyclopedia", "Ray Duncan", 129.95m, false);
+//            bookDB.AddBook("Dogbert's Clues for the Clueless", "Scott Adams", 12.00m, true);
+//        }
+//    }
+//}
 
 //delegate int TestDelegate<T>(T a, T b);
 //class Calculator
