@@ -5,16 +5,75 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
+abstract class Abstract
+{
+    protected int x = 10;
+    public abstract int X { get; set; }
+    public abstract void func();
+}
+class General : Abstract
+{
+    public override int X
+    {
+        get { return x + 20; }
+        set { x = value; }
+    }
+    public override void func()
+    {
+        Console.WriteLine("추상화 클래스 구현");
+    }
+}
 
 
 namespace Cs_Project_11
 {
     class Program
     {
-        //C# 컬렉션
         static void Main()
         {
+            General gn = new General();
+            Console.WriteLine("프로퍼티 X의 값 : " + gn.X);
+            gn.func();
+        }
 
+
+        //C# 컬렉션
+        //public static void Main()
+        //{
+        //    Stage stage = new Stage();
+        //    stage.Start();
+        //    stage.DrawMonster();
+        //}
+        //static void Main()
+        //{
+
+
+            //Animal ani = new Animal();
+            //Cat cat = new Cat();
+            //Dog dog = new Dog();
+            //ani.Bark();
+            //cat.Bark();
+            //dog.Bark();
+            //List<Animal> listAni = new List<Animal>() { new Animal(), new Cat(), new Dog() };
+            //for (int i = 0; i < listAni.Count; i++)
+            //    listAni[i].Attack();
+
+
+            //Character[] characters = new Character[2];
+
+            //characters[0] = new Knight();
+            //characters[1] = new Archer();
+
+            //for (int i = 0; i < characters.Length; i++)
+            //{
+            //    Console.WriteLine(characters[i].ToString());
+            //    characters[i].ReadyToBattle();
+            //}
+
+
+            //double r = 3.0, h = 5.0;
+            //Shape c = new Circle(r);
+            //Shape s = new Circle(r);
             //Hashtable ht = new Hashtable();
             //if (!ht.ContainsKey("오렌지"))
             //    ht.Add("오렌지", "Orange");
@@ -53,7 +112,7 @@ namespace Cs_Project_11
             //{
             //    Console.WriteLine(list[i]);
             //}
-        }
+        //}
         //public static void Calculator<T>(T a, T b, TestDelegate<T> callback)
         //{
         //    Console.WriteLine(callback(a, b));
@@ -387,6 +446,98 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//class Animal
+//{
+//    public Animal() { Console.WriteLine("나는 동물입니다."); }
+//    public virtual void Bark() { Console.WriteLine("울음 소리를 냅니다."); }
+//    public virtual void Attack() { Console.WriteLine("공격을 시작합니다."); }
+//}
+
+//class Cat:Animal
+//{
+//    public Cat() { Console.WriteLine("나는 고양이 입니다."); }
+//    public override void Bark() { Console.WriteLine("냐옹."); }
+//    public override void Attack() { Console.WriteLine("핡퀴기 공격."); }
+//}
+
+//class Dog : Animal
+//{
+//    public Dog() { Console.WriteLine("나는 개 입니다."); }
+//    public new void Bark() { Console.WriteLine("멍멍."); }
+//    public new void Attack() { Console.WriteLine("물기기 공격."); }
+//}
+
+//public class Character
+//{
+//    public virtual void ReadyToBattle()
+//    {
+//        Console.WriteLine("전투 태세를 취합니다.");
+//    }
+//}
+
+//public class Knight : Character
+//{
+//    public override void ReadyToBattle()
+//    {
+//        Console.WriteLine("기사 : 칼을 뽑아 전투 태세를 취합니다.");
+//    }
+//    public override string ToString()
+//    {
+//        return "기사 클래스";
+//    }
+//}
+//public class Archer : Character
+//{
+//    public override void ReadyToBattle()
+//    {
+//        Console.WriteLine("궁수 : 활을 뽑아 전투 태세를 취합니다.");
+//    }
+//    public override string ToString()
+//    {
+//        return "궁수 클래스";
+//    }
+//}
+
+//public class Shape
+//{
+//    public const double PI = Math.PI;
+//    protected double x, y;
+//    public Shape() { }
+//    public Shape(double x, double y)
+//    {
+//        this.x = x;
+//        this.y = y;
+//    }
+//    public virtual double Area()
+//    {
+//        return x * y;
+//    }
+//}
+//public class Circle : Shape
+//{
+//    public Circle(double r) : base(r, 0) { }
+//    public override double Area()
+//    {
+//        return PI * x * x;
+//    }
+//}
+//class Sphere : Shape
+//{
+//    public Sphere(double r) : base(r, 0) { }
+//    public override double Area()
+//    {
+//        return 4 * PI * x * x;
+//    }
+//}
+//class Cylinder : Shape
+//{
+//    public Cylinder(double r, double h) : base(r, h) { }
+//    public override double Area()
+//    {
+//        return 2 * PI * x * x + 2 * PI * x * y;
+//    }
+//}
 
 //public static void TestDictionary()
 //{
