@@ -5,23 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-abstract class Abstract
+interface Ipoint
 {
-    protected int x = 10;
-    public abstract int X { get; set; }
-    public abstract void func();
+    int x { get; set; }
+    int y { get; set; }
 }
-class General : Abstract
+class Point : Ipoint
 {
-    public override int X
+    private int _x;
+    private int _y;
+    public Point(int x, int y)
     {
-        get { return x + 20; }
-        set { x = value; }
+        _x = x;
+        _y = y;
     }
-    public override void func()
-    {
-        Console.WriteLine("추상화 클래스 구현");
-    }
+    public int x { get { return _x; } set { _x = value; } }
+    public int y { get { return _y; } set { _y = value; } }
 }
 
 
@@ -29,12 +28,60 @@ namespace Cs_Project_11
 {
     class Program
     {
+        static void PrintPoint(Ipoint p)
+        {
+            Console.WriteLine("x={0}, y={1}", p.x, p.y);
+        }
         static void Main()
         {
-            General gn = new General();
-            Console.WriteLine("프로퍼티 X의 값 : " + gn.X);
-            gn.func();
+            Point p = new Point(2, 3);
+            Console.WriteLine("현재 좌표는 : ");
+            PrintPoint(p);
         }
+        //static void Main()
+        //{
+        //    Car mycar = new Car();
+        //    mycar.Gear(3);
+        //    mycar.Volume(5);
+        //    CarControl carCon = mycar;
+        //    AudioControl audioCon = mycar;
+        //    carCon.Off();
+        //    audioCon.Off();
+        //}
+
+        //static void Main()
+        //{
+        //    MultiInheritance mi = new MultiInheritance();
+        //    interA interface1 = mi;
+        //    interB interface2 = mi;
+        //    interC interface3 = mi;
+        //    interface1.a();
+        //    interface2.b();
+        //    interface3.c();
+        //    mi.a();
+        //    mi.b();
+        //    mi.c();
+        //}
+        //static void Main()
+        //{
+        //    Bird bird = new Bird();
+        //    Cat cat = new Cat();
+        //    Dog dog = new Dog();
+        //    bird.Bark();
+        //    cat.Bark();
+        //    dog.Bark();
+        //    List<Animal> listAni = new List<Animal>() { new Bird(), new Cat(), new Dog() };
+        //    for (int i = 0; i < listAni.Count; i++)
+        //        listAni[i].Attack();
+        //}
+
+        //static void Main()
+        //{
+        //    General gn = new General();
+        //    Console.WriteLine("프로퍼티 X의 값 : " + gn.X);
+        //    gn.func();
+        //    gn.func2();
+        //}
 
 
         //C# 컬렉션
@@ -446,6 +493,102 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//interface CarControl
+//{
+//    void Gear(int i);
+//    void Off();
+//}
+//interface AudioControl
+//{
+//    void Volume(int i);
+//    void Off();
+//}
+//public class Car : CarControl, AudioControl
+//{
+//    public void Gear(int i)
+//    {
+//        Console.WriteLine("현재 기어는 {0} 입니다.", i);
+//    }
+//    public void Volume(int i)
+//    {
+//        Console.WriteLine("현재 볼륨은 {0} 입니다.", i);
+//    }
+//    void CarControl.Off()
+//    {
+//        Console.WriteLine("시동을 껐습니다.");
+//    }
+//    void AudioControl.Off()
+//    {
+//        Console.WriteLine("오디오 전원을 끕니다.");
+//    }
+//}
+
+//interface interA
+//{
+//    void a();
+//}
+//interface interB
+//{
+//    void b();
+//}
+//interface interC : interA
+//{
+//    void c();
+//}
+//class MultiInheritance : interB , interC
+//{
+//    public void a() { Console.WriteLine("a 메소드 호출"); }
+//    public void b() { Console.WriteLine("b 메소드 호출"); }
+//    public void c() { Console.WriteLine("c 메소드 호출"); }
+//}
+
+//abstract class Animal
+//{
+//    public abstract void Bark();
+//    public abstract void Attack();
+//}
+//class Cat : Animal
+//{
+//    public Cat() { Console.WriteLine("나는 고양이 입니다."); }
+//    public override void Bark() { Console.WriteLine("냐옹"); }
+//    public override void Attack() { Console.WriteLine("핡퀴기 공격"); }
+//}
+
+//class Dog : Animal
+//{
+//    public Dog() { Console.WriteLine("나는 개 입니다."); }
+//    public override void Bark() { Console.WriteLine("멍멍"); }
+//    public override void Attack() { Console.WriteLine("물기 공격"); }
+//}
+
+//class Bird : Animal
+//{
+//    public Bird() { Console.WriteLine("나는 새 입니다."); }
+//    public override void Bark() { Console.WriteLine("짹짹"); }
+//    public override void Attack() { Console.WriteLine("쪼기 공격"); }
+//}
+
+//abstract class Abstract
+//{
+//    protected int x = 10;
+//    public abstract int X { get; set; }
+//    public virtual void func() { Console.WriteLine("가상 클래스 선언"); }
+//    public void func2() { Console.WriteLine("일반 메소드 호출"); }
+//}
+//class General : Abstract
+//{
+//    public override int X
+//    {
+//        get { return x + 20; }
+//        set { x = value; }
+//    }
+//    public override void func()
+//    {
+//        base.func();
+//        Console.WriteLine("가상 클래스 구현");
+//    }
+//}
 
 //class Animal
 //{
