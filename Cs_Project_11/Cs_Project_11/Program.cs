@@ -1,43 +1,181 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
-interface Ipoint
-{
-    int x { get; set; }
-    int y { get; set; }
-}
-class Point : Ipoint
-{
-    private int _x;
-    private int _y;
-    public Point(int x, int y)
-    {
-        _x = x;
-        _y = y;
-    }
-    public int x { get { return _x; } set { _x = value; } }
-    public int y { get { return _y; } set { _y = value; } }
-}
+
 
 
 namespace Cs_Project_11
 {
     class Program
     {
-        static void PrintPoint(Ipoint p)
+        // 파일 입출력
+
+        [Serializable]
+        class student
         {
-            Console.WriteLine("x={0}, y={1}", p.x, p.y);
+            public int num { get; set; }
+            public string name { get; set; }
+        }
+        private static void FileCreate(string filename)
+        {
+            string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+            student me = new student() { num = 1, name = "준헌" };
+            FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(file, me);
+            file.Close();
+            file = new FileStream(path, FileMode.Open, FileAccess.Read);
+            var result = (student)bf.Deserialize(file);
+            file.Close();
+            Console.WriteLine("번호 {0}, 이름 {1}", result.num, result.name);
+
         }
         static void Main()
         {
-            Point p = new Point(2, 3);
-            Console.WriteLine("현재 좌표는 : ");
-            PrintPoint(p);
+            Console.WriteLine("생성할 파일 이름을 입력해 주세요");
+            string filename = Console.ReadLine();
+            FileCreate(filename); 
         }
+
+
+        //private static void FileCreate(string filename)
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+        //    BinaryWriter bw = new BinaryWriter(file);
+        //    bw.Write(int.MaxValue);
+        //    bw.Write(double.MaxValue);
+        //    bw.Write("안녕하세요 SBS 게임 아카데미 입니다.");
+        //    file.Close();
+        //    file = new FileStream(path, FileMode.Open, FileAccess.Read);
+        //    BinaryReader br = new BinaryReader(file);
+        //    Console.WriteLine("File Size : {0} bytes", br.BaseStream.Length);
+        //    Console.WriteLine(br.ReadInt32());
+        //    Console.WriteLine(br.ReadDouble());
+        //    Console.WriteLine(br.ReadString());
+        //    file.Close();
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("생성할 파일 이름을 입력해주세요");
+        //    string filename = Console.ReadLine();
+        //    FileCreate(filename);
+        //}
+
+
+        //public static byte[] WriteStringBytes(string str, FileStream fs)
+        //{
+        //    byte[] bytestr = new UTF8Encoding(true).GetBytes(str);
+        //    fs.Write(bytestr, 0, bytestr.Length);
+        //    return bytestr;
+        //}
+        //private static void FileRead(string filename)
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    string outstr = "안녕하세요 SBS 게임 아카데미 입니다.";
+        //    byte[] readbyte = new byte[1024];
+        //    FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+        //    WriteStringBytes(outstr, file);
+        //    file.Seek(0, SeekOrigin.Begin);
+        //    UTF8Encoding utf8 = new UTF8Encoding(true);
+        //    file.Read(readbyte, 0, readbyte.Length);
+        //    Console.WriteLine(utf8.GetString(readbyte));
+        //    file.Close();
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("파일 이름을 입력해 주세요");
+        //    string filename = Console.ReadLine();
+        //    FileRead(filename);
+        //}
+
+
+
+        //private static void FileWrite(string filename, string text)
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    FileStream fs = new FileStream(path, FileMode.Create, FileAccess.Write);
+        //    StreamWriter sw = new StreamWriter(fs);
+        //    sw.WriteLine(text);
+        //    sw.Close();
+        //    Console.WriteLine("저장 완료");
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("저장 할 파일 이름을 입력해 주세요");
+        //    string filename = Console.ReadLine();
+        //    FileWrite(filename, "안녕하세요 SBS 게임 아카데미 입니다.");
+        //}
+
+        //private static void FileRead(string filename)
+        //{ 
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Read);
+        //    StreamReader sr = new StreamReader(file);
+        //    string readText = sr.ReadToEnd();
+        //    sr.Close();
+        //    file.Close();
+        //    Console.WriteLine(readText);
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("읽어올 파일 이름을 입력해주세요");
+        //    string filename = Console.ReadLine();
+        //    FileRead(filename);
+        //}
+
+        //private static void FileRead(string filename)
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    TextReader tr = new StreamReader(path);
+        //    string readText = tr.ReadToEnd();
+        //    tr.Close();
+        //    Console.WriteLine(readText);
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("읽어올 파일 이름을 입력해주세요");
+        //    string filename = Console.ReadLine();
+        //    FileRead(filename);
+        //}
+
+
+        //void CastingTest(object obj)
+        //{
+        //    BaseC baseC;
+        //    bool already = obj is BaseC;
+        //    if(already)
+        //    {
+        //        baseC = obj as BaseC;
+        //        if (baseC != null)
+        //            baseC.PrintMethod();
+        //    }
+        //    BaseC baseC2 = (BaseC)obj;
+        //    baseC2.PrintMethod();
+        //}
+        //static void Main(string[] args)
+        //{
+        //    DerivedC derivedC = new DerivedC();
+        //    new Program().CastingTest(derivedC);
+        //    derivedC.PrintMethod();
+        //    derivedC.PrintMethod2();
+        //}
+        //static void PrintPoint(Ipoint p)
+        //{
+        //    Console.WriteLine("x={0}, y={1}", p.x, p.y);
+        //}
+        //static void Main()
+        //{
+        //    Point p = new Point(2, 3);
+        //    Console.WriteLine("현재 좌표는 : ");
+        //    PrintPoint(p);
+        //}
         //static void Main()
         //{
         //    Car mycar = new Car();
@@ -95,70 +233,70 @@ namespace Cs_Project_11
         //{
 
 
-            //Animal ani = new Animal();
-            //Cat cat = new Cat();
-            //Dog dog = new Dog();
-            //ani.Bark();
-            //cat.Bark();
-            //dog.Bark();
-            //List<Animal> listAni = new List<Animal>() { new Animal(), new Cat(), new Dog() };
-            //for (int i = 0; i < listAni.Count; i++)
-            //    listAni[i].Attack();
+        //Animal ani = new Animal();
+        //Cat cat = new Cat();
+        //Dog dog = new Dog();
+        //ani.Bark();
+        //cat.Bark();
+        //dog.Bark();
+        //List<Animal> listAni = new List<Animal>() { new Animal(), new Cat(), new Dog() };
+        //for (int i = 0; i < listAni.Count; i++)
+        //    listAni[i].Attack();
 
 
-            //Character[] characters = new Character[2];
+        //Character[] characters = new Character[2];
 
-            //characters[0] = new Knight();
-            //characters[1] = new Archer();
+        //characters[0] = new Knight();
+        //characters[1] = new Archer();
 
-            //for (int i = 0; i < characters.Length; i++)
-            //{
-            //    Console.WriteLine(characters[i].ToString());
-            //    characters[i].ReadyToBattle();
-            //}
+        //for (int i = 0; i < characters.Length; i++)
+        //{
+        //    Console.WriteLine(characters[i].ToString());
+        //    characters[i].ReadyToBattle();
+        //}
 
 
-            //double r = 3.0, h = 5.0;
-            //Shape c = new Circle(r);
-            //Shape s = new Circle(r);
-            //Hashtable ht = new Hashtable();
-            //if (!ht.ContainsKey("오렌지"))
-            //    ht.Add("오렌지", "Orange");
-            //if (!ht.ContainsKey("바나나"))
-            //    ht.Add("바나나", "Banana");
-            //if (!ht.ContainsKey("사과"))
-            //    ht.Add("사과", "Apple");
-            //foreach(string s in ht.Keys)
-            //{
-            //    Console.WriteLine(s);
-            //    Console.WriteLine(ht[s]);
-            //}
-            //Console.WriteLine(ht["오렌지"]);
-            //Console.WriteLine(ht["바나나"]);
-            //Console.WriteLine(ht["사과"]);
-            //Queue que = new Queue();
-            //que.Enqueue(10);
-            //que.Enqueue(20);
-            //que.Enqueue(30);
-            //que.Dequeue();
-            //que.Enqueue(4.4);
-            //que.Dequeue();
-            //que.Enqueue("ABC");
-            //while(que.Count > 0)
-            //{
-            //    Console.WriteLine(que.Dequeue());
-            //}
-            //ArrayList list = new ArrayList();
-            //list.Add(10);
-            //list.Add(20);
-            //list.Add(30);
-            //list.RemoveAt(1);
-            //list.Insert(1, 36.5f);
-            //list.Add("SBS 게임 아카데미");
-            //for(int i = 0; i < list.Count; i++)
-            //{
-            //    Console.WriteLine(list[i]);
-            //}
+        //double r = 3.0, h = 5.0;
+        //Shape c = new Circle(r);
+        //Shape s = new Circle(r);
+        //Hashtable ht = new Hashtable();
+        //if (!ht.ContainsKey("오렌지"))
+        //    ht.Add("오렌지", "Orange");
+        //if (!ht.ContainsKey("바나나"))
+        //    ht.Add("바나나", "Banana");
+        //if (!ht.ContainsKey("사과"))
+        //    ht.Add("사과", "Apple");
+        //foreach(string s in ht.Keys)
+        //{
+        //    Console.WriteLine(s);
+        //    Console.WriteLine(ht[s]);
+        //}
+        //Console.WriteLine(ht["오렌지"]);
+        //Console.WriteLine(ht["바나나"]);
+        //Console.WriteLine(ht["사과"]);
+        //Queue que = new Queue();
+        //que.Enqueue(10);
+        //que.Enqueue(20);
+        //que.Enqueue(30);
+        //que.Dequeue();
+        //que.Enqueue(4.4);
+        //que.Dequeue();
+        //que.Enqueue("ABC");
+        //while(que.Count > 0)
+        //{
+        //    Console.WriteLine(que.Dequeue());
+        //}
+        //ArrayList list = new ArrayList();
+        //list.Add(10);
+        //list.Add(20);
+        //list.Add(30);
+        //list.RemoveAt(1);
+        //list.Insert(1, 36.5f);
+        //list.Add("SBS 게임 아카데미");
+        //for(int i = 0; i < list.Count; i++)
+        //{
+        //    Console.WriteLine(list[i]);
+        //}
         //}
         //public static void Calculator<T>(T a, T b, TestDelegate<T> callback)
         //{
@@ -259,20 +397,20 @@ namespace Cs_Project_11
         //{
 
 
-            //int[] orgArr = new int[] { 10, 20, 30, 40 };
-            //int[] copyArr = (int[])orgArr.Clone();
-            //for(int i = 0; i < copyArr.Length; i++)
-            //{
-            //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
-            //}
+        //int[] orgArr = new int[] { 10, 20, 30, 40 };
+        //int[] copyArr = (int[])orgArr.Clone();
+        //for(int i = 0; i < copyArr.Length; i++)
+        //{
+        //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
+        //}
 
-            //int[] orgArr = new int[] { -1, -3, -5, -7, -9 };
-            //int[] copyArr = { 2, 4, 6, 8, 10 };
-            //Array.Copy(orgArr, 0, copyArr, 2, 3);
-            //for (int i = 0; i < copyArr.Length; i++)
-            //{
-            //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
-            //}
+        //int[] orgArr = new int[] { -1, -3, -5, -7, -9 };
+        //int[] copyArr = { 2, 4, 6, 8, 10 };
+        //Array.Copy(orgArr, 0, copyArr, 2, 3);
+        //for (int i = 0; i < copyArr.Length; i++)
+        //{
+        //    Console.WriteLine("copyArr[{0}] = {1}", i, copyArr[i]);
+        //}
         //}
 
 
@@ -493,6 +631,84 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//namespace ConsoleApplication12
+//{
+//    public class Polygon
+//    {
+//        public virtual int area(int a) { return 0; }
+//        public virtual int perimeter(int a) { return 0; }
+//    }
+//    public class Square : Polygon
+//    {
+//        public override int area(int a)
+//        {
+//            return a * a;
+//        }
+//        public override int perimeter(int a)
+//        {
+//            return 4 * a;
+//        }
+//    }
+//    public class Triangle : Polygon
+//    {
+//        public override int area(int a)
+//        {
+//            return a * a / 2;
+//        }
+//        public override int perimeter(int a)
+//        {
+//            return 3 * a;
+//        }
+//    }
+//    class Program
+//    {
+//        static void Main(string[] args)
+//        {
+//            Polygon sq = new Square();
+//            Polygon tri = new Triangle();
+//            Console.WriteLine("area:{0} , perimeter:{1}", sq.area(2), sq.perimeter(4));
+//            Console.WriteLine("area:{0} , perimeter:{1}", tri.area(3), tri.perimeter(5));        
+//        }
+//    }
+//}
+
+//class BaseC
+//{
+//    public virtual void PrintMethod()
+//    {
+//        Console.WriteLine("부모 클래스 Method");
+//    }
+//}
+//class DerivedC : BaseC
+//{
+//    public override void PrintMethod()
+//    {
+//        Console.WriteLine("부모 Method 재정의!!");
+//    }
+//    public void PrintMethod2()
+//    {
+//        Console.WriteLine("자식 클래스 Method");
+//    }
+//}
+
+//interface Ipoint
+//{
+//    int x { get; set; }
+//    int y { get; set; }
+//}
+//class Point : Ipoint
+//{
+//    private int _x;
+//    private int _y;
+//    public Point(int x, int y)
+//    {
+//        _x = x;
+//        _y = y;
+//    }
+//    public int x { get { return _x; } set { _x = value; } }
+//    public int y { get { return _y; } set { _y = value; } }
+//}
 
 //interface CarControl
 //{
