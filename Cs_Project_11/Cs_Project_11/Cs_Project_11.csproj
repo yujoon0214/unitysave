@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Singleton.cs" />
     <Compile Include="Stage.cs" />
     <Compile Include="Monster_Boss.cs" />
     <Compile Include="Monster.cs" />

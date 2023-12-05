@@ -10,38 +10,167 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 
 
+
+
+//class Singleton
+//{
+//    private static Singleton _instance = null;
+//    private Singleton() { }
+//    public static Singleton Instance
+//    {
+//        get
+//        {
+//            if (_instance == null)
+//                _instance = new Singleton();
+//            return _instance;
+//        }
+//    }
+//    public void DrawMessage()
+//    {
+//        Console.WriteLine("안녕하세요 SBS 게임 아카데미 입니다.");
+//    }
+//}
+
 namespace Cs_Project_11
 {
     class Program
     {
+        //static void Main()
+        //{
+        //    Singleton.Instance.DrawMessage();
+        //}
+        
+
+        //public static void Main()
+        //{
+        //    Action<string> Print = (str) => Console.WriteLine(str);
+        //    Action<int, int> Add = (a, b) => Console.WriteLine("{0} + {1} = {2}", a, b, a + b);
+        //    Action<int, int> Mul = (a, b) => Console.WriteLine("{0} * {1} = {2}", a, b, a * b);
+        //    Action<double> FtoC = (F) => Console.WriteLine("화씨 {0} -> 섭씨 {1}", F, (F - 32) * 5 / 9);
+        //    Action<double> CtoF = (C) => Console.WriteLine("썹씨 {0} -> 화씨 {1}",C, (C * 9 / 5) + 32);
+
+        //    Print("안녕하세요 SBS 게임 아카데미입니다.");
+        //    Add(10, 20);
+        //    Mul(10, 20);
+        //    FtoC(132.2d);
+        //    CtoF(36.5d);
+        //}
+
+        //public static void Main()
+        //{
+        //    Func<string> Print = () => "안녕하세요 SBS 게임 아카데미 입니다.";
+        //    Func<int, int, int> Add = (a, b) => a + b;
+        //    Func<int, int, int> Mul = (a, b) => a * b;
+        //    Func<double, double> FtoC = (F) => (F - 32) * 5 / 9;
+        //    Func<double, double> CtoF = (C) => (C * 9 / 5) + 32;
+
+        //    Console.WriteLine("Func Print값 : {0}", Print());
+        //    Console.WriteLine("Func Add 값 : {0}",Add(10,20));
+        //    Console.WriteLine("Func Mul 값 : {0}",Mul(10,20));
+        //    Console.WriteLine("Func FtoC 값 : {0}",FtoC(132.2d));
+        //    Console.WriteLine("Func CtoF 값 : {0}",CtoF(36.5));
+
+        //}
+
+
+        //public static string UpperCaseString(string inputString)
+        //{
+        //    return inputString.ToUpper();
+        //}
+        //public static string DrawMessage()
+        //{
+        //    return "안녕하세요 SBS 게임 아카데미 입니다.";
+        //}
+        //public static void Main()
+        //{
+        //    Func<string, string> func01 = UpperCaseString;
+        //    Func<string> func02 = DrawMessage;
+        //    string name = "Yu Jun Heon";
+        //    Console.WriteLine(func01(name));
+        //    Console.WriteLine(func02());
+        //}
+
+
+        //static void GetFiles()
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\";
+        //    DirectoryInfo dinfo = new DirectoryInfo(path);
+        //        if (dinfo.Exists)
+        //        {
+        //            string[] exts = new string[] { ".bmp", ".txt", ".gif" };
+        //            FileInfo[] files = dinfo.GetFiles("*.*", SearchOption.TopDirectoryOnly);
+        //            string[] filestr = new string[files.Length];
+        //            for (int i = 0; i < files.Length; i++)
+        //                filestr[i] = files[i].ToString();
+        //            string[] result = filestr.Where(
+        //                (s) => exts.Contains(Path.GetExtension(s), StringComparer.OrdinalIgnoreCase)).ToArray();
+        //            for (int i = 0; i < result.Length; i++)
+        //                Console.WriteLine(result[i]);
+        //        }
+        //}
+        //public static void Main()
+        //{
+        //    GetFiles();
+        //}
+        
+
+
+        //delegate void MyDelegate(int a, int b);
+        //public static void Main()
+        //{
+        //    MyDelegate Compare = (a, b) =>
+        //    {
+        //        if (a > b)
+        //            Console.WriteLine("{0} > {1}", a, b);
+        //        else if (a < b)
+        //            Console.WriteLine("{0} < {1}", a, b);
+        //        else
+        //            Console.WriteLine("{0} == {1}", a, b);
+        //    };
+        //    Compare(30, 60);
+        //    Compare(60, 30);
+        //    Compare(100, 100);
+        //}
+        //delegate int MyDelegate(int a, int b);
+        //delegate void PrintDelegate();
+        //public static void Main()
+        //{
+        //    MyDelegate Add = (a, b) => a + b;
+        //    MyDelegate Multi = (a, b) => a * b;
+        //    PrintDelegate Message = () => Console.WriteLine("안녕하세요 람다식을 배워볼까요?");
+        //    Console.WriteLine(Add(100, 200));
+        //    Console.WriteLine(Multi(20, 50));
+        //    Message();
+        //}
+
         // 파일 입출력
 
-        [Serializable]
-        class student
-        {
-            public int num { get; set; }
-            public string name { get; set; }
-        }
-        private static void FileCreate(string filename)
-        {
-            string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
-            student me = new student() { num = 1, name = "준헌" };
-            FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
-            BinaryFormatter bf = new BinaryFormatter();
-            bf.Serialize(file, me);
-            file.Close();
-            file = new FileStream(path, FileMode.Open, FileAccess.Read);
-            var result = (student)bf.Deserialize(file);
-            file.Close();
-            Console.WriteLine("번호 {0}, 이름 {1}", result.num, result.name);
+        //[Serializable]
+        //class student
+        //{
+        //    public int num { get; set; }
+        //    public string name { get; set; }
+        //}
+        //private static void FileCreate(string filename)
+        //{
+        //    string path = @"C:\Users\SBSGAME\Desktop\yujunheon\Cs_Project_11\Cs_Project_11\" + filename;
+        //    student me = new student() { num = 1, name = "준헌" };
+        //    FileStream file = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write);
+        //    BinaryFormatter bf = new BinaryFormatter();
+        //    bf.Serialize(file, me);
+        //    file.Close();
+        //    file = new FileStream(path, FileMode.Open, FileAccess.Read);
+        //    var result = (student)bf.Deserialize(file);
+        //    file.Close();
+        //    Console.WriteLine("번호 {0}, 이름 {1}", result.num, result.name);
 
-        }
-        static void Main()
-        {
-            Console.WriteLine("생성할 파일 이름을 입력해 주세요");
-            string filename = Console.ReadLine();
-            FileCreate(filename); 
-        }
+        //}
+        //static void Main()
+        //{
+        //    Console.WriteLine("생성할 파일 이름을 입력해 주세요");
+        //    string filename = Console.ReadLine();
+        //    FileCreate(filename); 
+        //}
 
 
         //private static void FileCreate(string filename)
