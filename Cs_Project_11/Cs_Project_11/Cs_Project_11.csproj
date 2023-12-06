@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Singleton.cs" />
-    <Compile Include="Stage.cs" />
-    <Compile Include="Monster_Boss.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterManager.cs" />
+    <Compile Include="Singleton.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

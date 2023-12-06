@@ -9,32 +9,36 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 
 
-
-
-
-//class Singleton
-//{
-//    private static Singleton _instance = null;
-//    private Singleton() { }
-//    public static Singleton Instance
-//    {
-//        get
-//        {
-//            if (_instance == null)
-//                _instance = new Singleton();
-//            return _instance;
-//        }
-//    }
-//    public void DrawMessage()
-//    {
-//        Console.WriteLine("안녕하세요 SBS 게임 아카데미 입니다.");
-//    }
-//}
-
 namespace Cs_Project_11
 {
     class Program
     {
+
+
+        //public static void Main()
+        //{
+        //    StringBuilder sb = new StringBuilder("안녕하세요!");
+        //    Console.WriteLine(sb);
+        //    sb.Append(" SBS 게임 아카데미 입니다.");
+        //    Console.WriteLine("Append() : {0}", sb);
+        //    sb.AppendFormat(" 제 이름은 {0}이고 나이는 {1}살 입니다.", "유준헌", 17);
+        //    Console.WriteLine("AppendFormat() : {0}", sb);
+        //    sb.Remove(0, 6);
+        //    Console.WriteLine("Remove() : {0} ", sb);
+        //    sb.Insert(12, "강남지점");
+        //    Console.WriteLine("Insert() : {0}", sb);
+        //    sb.Replace("강남지점", "신촌지점");
+        //    Console.WriteLine("Replace() : {0}", sb);
+        //    sb.Clear();
+        //    Console.WriteLine("Clear() : {0}", sb);
+        //}
+        //static void Main(string[] args)
+        //{
+        //    Stage stage = new Stage();
+        //    stage.CreateMonsters();
+        //    MonsterManager.Instance.DrawMonstersInfo();
+        //    Console.WriteLine("Stage Clear : {0} ", stage.IsClear());
+        //}
         //static void Main()
         //{
         //    Singleton.Instance.DrawMessage();
@@ -760,6 +764,31 @@ namespace Cs_Project_11
         //}
     }
 }
+
+//public class Stage
+//{
+//    const int MONSTER_MAX = 10;
+//    public void CreateMonsters()
+//    {
+//        for (int i = 0; i < MONSTER_MAX; i++)
+//        {
+//            MonsterManager.Instance.Add(new Monster());
+//        }
+//        MonsterManager.Instance.InitMonsters();
+//    }
+//    public bool IsClear()
+//    {
+//        for (int i = 0; i < MonsterManager.Instance.Count; i++)
+//        {
+//            Monster mon = null;
+//            if ((mon = MonsterManager.Instance.GetMonster(i)) != null)
+//            {
+//                if (mon.m_isAlive) return false;
+//            }
+//        }
+//        return true;
+//    }
+//}
 
 //namespace ConsoleApplication12
 //{
