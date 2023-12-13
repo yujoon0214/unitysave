@@ -8,31 +8,45 @@
 
 
 
+typedef struct tagPERSON
+{
+	int name[10];
+}PERSON;
+
 int main()
 {
-	FILE* fp;
-	BITMAPFILEHEADER bfh;
-	BITMAPINFOHEADER bih;
-	fp = fopen("img.bmp", "rb");
-	fread(&bfh, sizeof(BITMAPFILEHEADER), 1, fp);
-	if (bfh.bfType != 'MB')
-	{
-		printf("비트맵 파일이 아닙니다.\n");
-		fclose(fp);
-		return 0;
-	}
-	else
-	{
-		printf("비트맵 파일이 맞습니다.\n");
-	}
-	printf("비트맵 타입 확인 : %c%c\n", bfh.bfType, bfh.bfType>>8);
-	printf("비트맵 파일 크기 : %.2fMB", bfh.bfSize / 1024.0f / 1024.0f);
-	fread(&bfh, sizeof(BITMAPINFOHEADER), 1, fp);
-	printf("비트맵 비트수 : %2dbit\n", bih.biBitCount);
-	printf("비트맵 넓이 : %dpixel\n", bih.biWidth);
-	printf("비트맵 높아 : %dpixel\n", bih.biHeight);
-	fclose(fp);
+	tagPERSON person;
+	printf("회원가입을 시작합니다.\n");
+	printf("가입하실 이름을 입력해주세요 (한글 5, 영문 10글자 이내)\n");
+	scanf("%p", person.name);
+	printf("학생의 이름 : %d\n", person.name);
 }
+
+//int main()
+//{
+//	FILE* fp;
+//	BITMAPFILEHEADER bfh;
+//	BITMAPINFOHEADER bih;
+//	fp = fopen("img.bmp", "rb");
+//	fread(&bfh, sizeof(BITMAPFILEHEADER), 1, fp);
+//	if (bfh.bfType != 'MB')
+//	{
+//		printf("비트맵 파일이 아닙니다.\n");
+//		fclose(fp);
+//		return 0;
+//	}
+//	else
+//	{
+//		printf("비트맵 파일이 맞습니다.\n");
+//	}
+//	printf("비트맵 타입 확인 : %c%c\n", bfh.bfType, bfh.bfType>>8);
+//	printf("비트맵 파일 크기 : %.2fMB", bfh.bfSize / 1024.0f / 1024.0f);
+//	fread(&bfh, sizeof(BITMAPINFOHEADER), 1, fp);
+//	printf("비트맵 비트수 : %2dbit\n", bih.biBitCount);
+//	printf("비트맵 넓이 : %dpixel\n", bih.biWidth);
+//	printf("비트맵 높아 : %dpixel\n", bih.biHeight);
+//	fclose(fp);
+//}
 
 // C언어 파일 입출력
 
